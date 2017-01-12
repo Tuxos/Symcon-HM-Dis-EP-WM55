@@ -3,6 +3,8 @@ Dieses Modul soll nur übergangsweise bestehen bis die Unterstüzung in das Home
 
 Der absolute Großteil der Funktionen stammt nicht von mir, sondern von User Chris aka. "balihannes" aus dem IPSymcon Forum. Vielen Dank dafür!
 
+Entsprechender Eintrag im IPSymcon Forum: https://www.symcon.de/forum/threads/31889-HM-Dis-EP-WM55-e-paper-Status-Display?highlight=EP-WM55
+
 ##Ausgabe von Text, Icons und Sound auf einem Homematic HM-Dis-EP-WM55
 Befehl: `HMDIS_writeDisplay(zeile1, zeile2, zeile3, icon1, icon2, icon3, signal, tonfolge );`
 
