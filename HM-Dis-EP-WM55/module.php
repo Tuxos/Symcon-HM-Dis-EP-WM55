@@ -1,6 +1,6 @@
 <?
 
-	class HM-DIS-EP-WM55 extends IPSModule {
+	class HMDISEPWM55 extends IPSModule {
 
 	public function Create() {
 
