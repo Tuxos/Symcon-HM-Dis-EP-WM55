@@ -261,7 +261,7 @@ return $string;
 
 		// Wandle Umlaute um (das Ä geht leider noch nicht. Scheint ein Bug zu sein.)
 		$search  = array('ä', 'Ä','ö', 'Ö', 'ü', 'Ü', 'ß');
-		$replace = array('{', 'Ae','|', '#', '}', '$', '_');
+		$replace = array('{', 'A','|', '#', '}', '$', '_');
 		$zeile1 = str_replace($search, $replace, $zeile1);
 		$zeile2 = str_replace($search, $replace, $zeile2);
 		$zeile3 = str_replace($search, $replace, $zeile3);
