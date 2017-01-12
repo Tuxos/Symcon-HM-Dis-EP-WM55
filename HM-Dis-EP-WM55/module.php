@@ -259,9 +259,9 @@ return $string;
 		//     0x88 Textblock  9
 		//     0x89 Textblock 10
 
-		// Wandle Umlaute um
-		$search  = array('ä', 'Ä', 'ö', 'Ö', 'ü', 'Ü', 'ß', '&');
-		$replace = array('{', '[', '|', '#', '}', '$', '_', ']');
+		// Wandle Umlaute um (das Ä geht leider noch nicht. Scheint ein Bug zu sein.)
+		$search  = array('ä', 'ö', 'Ö', 'ü', 'Ü', 'ß');
+		$replace = array('{', '|', '#', '}', '$', '_');
 		$zeile1 = str_replace($search, $replace, $zeile1);
 		$zeile2 = str_replace($search, $replace, $zeile2);
 		$zeile3 = str_replace($search, $replace, $zeile3);
