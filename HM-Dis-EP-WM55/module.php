@@ -15,8 +15,6 @@
 
 		parent::ApplyChanges();
 
-		//$this->RegisterVariableInteger("actualpage", "Aktuelle Seite", "",1);
-
 		if (@IPS_GetInstanceIDByName("Taste unten", $this->InstanceID) == false) {
 			$InsID = IPS_CreateInstance("{EE4A81C6-5C90-4DB7-AD2F-F6BBD521412E}");
 			IPS_SetName($InsID, "Taste unten");
@@ -260,6 +258,11 @@ return $string;
 		//     0x87 Textblock  8
 		//     0x88 Textblock  9
 		//     0x89 Textblock 10
+
+		// Wandle Umlaute um
+		$search  = array('ä', 'ö', 'Ö', 'ü', 'Ü', 'ß');
+		$replace = array('{', '|', '#', '}', '$', '_');
+		$zeile1 = str_replace($search, $replace, $zeile1);
 
 		// 1. Zeile *****************************
 		$display_line[1] =
