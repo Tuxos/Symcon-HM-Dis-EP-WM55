@@ -5,6 +5,10 @@ Der absolute Großteil der Funktionen stammt nicht von mir, sondern von User Chr
 
 Entsprechender Eintrag im IPSymcon Forum: https://www.symcon.de/forum/threads/31889-HM-Dis-EP-WM55-e-paper-Status-Display
 
+##Installation
+Dies ist ein normales Modul für IPSymcon 4.x und wird genauso wie alle anderen Installiert. Danach muss eine Instanz hinzugefügt werden --> HM-DIS-EP-WM55.
+Desweiteren muss die IP Adresse der CCU (getestet nur mit CCU2) und die Seriennummer des Display Tasters angegeben werden.
+
 ##Ausgabe von Text, Icons und Sound auf einem Homematic HM-Dis-EP-WM55
 Befehl: `HMDIS_writeDisplay(zeile1, zeile2, zeile3, icon1, icon2, icon3, signal, tonfolge );`
 

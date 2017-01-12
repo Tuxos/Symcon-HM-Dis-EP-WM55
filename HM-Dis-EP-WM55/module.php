@@ -15,7 +15,7 @@
 
 		parent::ApplyChanges();
 
-		$this->RegisterVariableInteger("actualpage", "Aktuelle Seite", "",1);
+		//$this->RegisterVariableInteger("actualpage", "Aktuelle Seite", "",1);
 
 		if (($this->ReadPropertyString("ipadress") != "") and ($this->ReadPropertyString("serialnumber") != ""))
 			{
