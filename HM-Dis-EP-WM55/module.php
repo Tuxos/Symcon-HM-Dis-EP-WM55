@@ -26,11 +26,11 @@
 
 	}
 
-	protected function umsetzen($display_line) {
+	public function umsetzen($display_line) {
 
 		$string = "0x02,0x0A";
 		if ($display_line[1]['text'] != "") {
-            $string .= ",0x12,".hex_encode($display_line[1]['text']);
+            $string .= ",0x12,".HMDIS_hex_encode($display_line[1]['text']);
             if ($display_line[1]['icon'] != ""){
                 $string .= "0x13,".$display_line[1]['icon'].",0x0A";
             } else {
@@ -40,7 +40,7 @@
             $string.= ",0x0A";
         }
         if ($display_line[2]['text'] != "") {
-            $string .= ",0x12,".hex_encode($display_line[2]['text']);
+            $string .= ",0x12,".HDIS_hex_encode($display_line[2]['text']);
             if ($display_line[2]['icon'] != ""){
                 $string .= "0x13,".$display_line[2]['icon'].",0x0A";
             } else {
@@ -50,7 +50,7 @@
             $string.= ",0x0A";
         }
         if ($display_line[3]['text'] != "") {
-            $string .= ",0x12,".hex_encode($display_line[3]['text']);
+            $string .= ",0x12,".HMDIS_hex_encode($display_line[3]['text']);
             if ($display_line[3]['icon'] != ""){
                 $string .= "0x13,".$display_line[3]['icon'].",0x0A";
             } else {
@@ -63,7 +63,7 @@
 }
 
 
-protected function hex_encode($ascii) {
+public function hex_encode($ascii) {
     if (strlen($ascii) > 0 and strlen($ascii) < 5 and strlen($ascii) == 4){
 
         if ($ascii{0} == "0" and $ascii{1} == "x"){
@@ -81,7 +81,7 @@ protected function hex_encode($ascii) {
 }
 
 
-protected function HMRS_HTTP_Post($CCU_IP, $HM_Script) {
+public function HMRS_HTTP_Post($CCU_IP, $HM_Script) {
 $fp = fsockopen ($CCU_IP, 8181, $errno, $errstr, 2);
 $res = "";
     if (!$fp) {
@@ -100,7 +100,7 @@ $res = "";
     return $res;
 }
 
-protected function wiederholungen_abstand($wiederholungen, $string, $abstand) {
+public function wiederholungen_abstand($wiederholungen, $string, $abstand) {
 if ($wiederholungen < 1){
        $string = $string . "0xDF,0x1D,";
 }   else {
@@ -175,9 +175,6 @@ return $string;
 
 	// Lese alle Konfigurationsdaten aus und schreibe sie in Variablen
 	public function writeDisplay($zeile1, $zeile2, $zeile3) {
-
-		// Lese & schreibe aktuelle Verbrauchsdaten
-		$ip = $this->ReadPropertyString("ipadress");
 
 		$CCU_IP = $this->ReadPropertyString("ipadress");  // IP der CCU2
 $Seriennummer = $this->ReadPropertyString("serialnumber"); // Seriennummer des Display
@@ -270,13 +267,13 @@ $display_line[3] =
 // Ab hier keine Änderungen machen
 //*************************************************************************
 
-$string = umsetzen($display_line);
+$string = HMDIS_umsetzen($display_line);
 
 // Definition der Werte für die Tonfolgen
 $string = $string . ",0x14," . $tonfolge . ",0x1C,";
 
 // Wiedeholungen und Abstand hinzufügen
-$string = wiederholungen_abstand($wiederholungen, $string, $abstand);
+$string = HMDIS_wiederholungen_abstand($wiederholungen, $string, $abstand);
 
 // Definition der Werte für die Signale
 $string = $string . $signal . ",0x03";
@@ -288,7 +285,7 @@ dom.GetObject("BidCos-RF.'.$Seriennummer.':3.SUBMIT").State("'.$string.'");
 
 //echo $HM_Script;
 
-HMRS_HTTP_Post($CCU_IP, $HM_Script);
+HMDIS_HMRS_HTTP_Post($CCU_IP, $HM_Script);
 
 	}
 }
