@@ -174,12 +174,12 @@ return $string;
 
 
 	// Lese alle Konfigurationsdaten aus und schreibe sie in Variablen
-	public function writeDisplay($zeile1, $zeile2, $zeile3) {
+	public function writeDisplay($zeile1, $zeile2, $zeile3, $icon1, $icon2, $icon3, $signal, $tonfolge ) {
 
 		$CCU_IP = $this->ReadPropertyString("ipadress");  // IP der CCU2
 $Seriennummer = $this->ReadPropertyString("serialnumber"); // Seriennummer des Display
 
-//---------------------------------------
+//--------------- $signal ------------------------
 // Definition der Werte für die Signale
 //
 //  ! 0xF0 AUS
@@ -187,9 +187,7 @@ $Seriennummer = $this->ReadPropertyString("serialnumber"); // Seriennummer des D
 //  ! 0xF2 Grünes Blitzen
 //  ! 0xF3 Orangenes Blitzen
 
-$signal = "0xF0";
-
-//---------------------------------------
+//----------------- $tonfolge ----------------------
 // Definition der Werte für die Tonfolgen
 //
 //  ! 0xC0 AUS
@@ -200,8 +198,6 @@ $signal = "0xF0";
 //  ! 0xC5 KURZ KURZ
 //  ! 0xC6 LANG
 
-$tonfolge = "0xC0";
-
 // Wiederholungen
 // 1 bis 15. 0 = Unendlich
 $wiederholungen = 1;
@@ -211,16 +207,16 @@ $abstand = 10;
 
 //---------------------------------------
 //    ******** Icon ***********
-// EIN                icon_on
-// AUS                icon_off
-// OFFEN              icon_open
-// geschlossen        icon_closed
-// fehler             icon_error
-// alles ok           icon_ok
-// information        icon_information
-// neue nachricht     icon_message
-// servicemeldung     icon_service
-// ohne Icon          icon_no
+// EIN                0x80
+// AUS                0x81
+// OFFEN              0x82
+// geschlossen        0x83
+// fehler             0x84
+// alles ok           0x85
+// information        0x86
+// neue nachricht     0x87
+// servicemeldung     0x88
+// ohne Icon          ""
 //---------------------------------------
 // Umlaute - Sonderzeichen:
 //
@@ -252,15 +248,15 @@ $abstand = 10;
 // 1. Zeile *****************************
 $display_line[1] =
     array(    'text'    =>     $zeile1,
-              'icon'    =>     "");
+              'icon'    =>     $icon1);
 // 2. Zeile *****************************
 $display_line[2] =
     array(    'text'    =>     $zeile2,
-              'icon'    =>     "");
+              'icon'    =>     $icon2);
 // 3. Zeile *****************************
 $display_line[3] =
     array(    'text'    =>     $zeile3,
-              'icon'    =>     "");
+              'icon'    =>     $icon3);
 
 
 //*************************************************************************
