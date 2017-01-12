@@ -6,7 +6,7 @@
 
 		parent::Create();
 
-		$this->RegisterPropertyString("ipadress", "192.168.X.X");
+		$this->RegisterPropertyString("ipadress", "");
 		$this->RegisterPropertyString("serialnumber", "NEQXXXXXXX");
 
 	}
@@ -16,15 +16,20 @@
 		parent::ApplyChanges();
 
 		//$this->RegisterVariableInteger("actualpage", "Aktuelle Seite", "",1);
-		$InsID = IPS_CreateInstance("{EE4A81C6-5C90-4DB7-AD2F-F6BBD521412E}");
-		IPS_SetName($InsID, "Taste unten");
-		IPS_SetParent($InsID, $this->InstanceID);
-		IPS_SetConfiguration($InsID, '{"Protocol":0,"Address":"'.$this->ReadPropertyString("serialnumber").':1","EmulateStatus":true}');
 
-		$InsID = IPS_CreateInstance("{EE4A81C6-5C90-4DB7-AD2F-F6BBD521412E}");
-		IPS_SetName($InsID, "Taste oben");
-		IPS_SetParent($InsID, $this->InstanceID);
-		IPS_SetConfiguration($InsID, '{"Protocol":0,"Address":"'.$this->ReadPropertyString("serialnumber").':2","EmulateStatus":true}');
+		if (@IPS_GetInstanceIDByName("Taste unten", $this->InstanceID) == false) {
+			$InsID = IPS_CreateInstance("{EE4A81C6-5C90-4DB7-AD2F-F6BBD521412E}");
+			IPS_SetName($InsID, "Taste unten");
+			IPS_SetParent($InsID, $this->InstanceID);
+		}
+		IPS_SetConfiguration(@IPS_GetInstanceIDByName("Taste unten", $this->InstanceID), '{"Protocol":0,"Address":"'.$this->ReadPropertyString("serialnumber").':1","EmulateStatus":true}');
+
+		if (@IPS_GetInstanceIDByName("Taste oben", $this->InstanceID) == false) {
+			$InsID = IPS_CreateInstance("{EE4A81C6-5C90-4DB7-AD2F-F6BBD521412E}");
+			IPS_SetName($InsID, "Taste oben");
+			IPS_SetParent($InsID, $this->InstanceID);
+		}
+		IPS_SetConfiguration(@IPS_GetInstanceIDByName("Taste oben", $this->InstanceID), '{"Protocol":0,"Address":"'.$this->ReadPropertyString("serialnumber").':2","EmulateStatus":true}');
 
 		if (($this->ReadPropertyString("ipadress") != "") and ($this->ReadPropertyString("serialnumber") != ""))
 			{

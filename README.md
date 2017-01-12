@@ -1,7 +1,9 @@
 # Symcon-HM-Dis-EP-WM55
 Dieses Modul soll nur übergangsweise bestehen bis die Unterstüzung in das Homematic Extended Modul oder in IPSymcon selber implementiert wurde.
 
-Der absolute Großteil der Funktionen stammt nicht von mir, sondern von User Chris aka. "balihannes" aus dem IPSymcon Forum. Vielen Dank dafür!
+Der Großteil der Funktionen stammt nicht von mir, sondern von User Chris aka. "balihannes" aus dem IPSymcon Forum. Vielen Dank dafür!
+
+Dieses Modul kann (leider) nur die drei Zeilen in der Mitte setzen. Die oberste und unterste Zeile muss fix über das WebUI der CCU gesetzt werden. Wenn jemand weiss wie man diese setzen kann, bitte melden.
 
 Entsprechender Eintrag im IPSymcon Forum: https://www.symcon.de/forum/threads/31889-HM-Dis-EP-WM55-e-paper-Status-Display
 
