@@ -291,4 +291,5 @@ dom.GetObject("BidCos-RF.'.$Seriennummer.':3.SUBMIT").State("'.$string.'");
 HMRS_HTTP_Post($CCU_IP, $HM_Script);
 
 	}
+}
 ?>
