@@ -260,8 +260,8 @@ return $string;
 		//     0x89 Textblock 10
 
 		// Wandle Umlaute um (das Ä geht leider noch nicht. Scheint ein Bug zu sein.)
-		$search  = array('ä', 'ö', 'Ö', 'ü', 'Ü', 'ß');
-		$replace = array('{', '|', '#', '}', '$', '_');
+		$search  = array('ä', 'Ä','ö', 'Ö', 'ü', 'Ü', 'ß');
+		$replace = array('{', 'Ae','|', '#', '}', '$', '_');
 		$zeile1 = str_replace($search, $replace, $zeile1);
 		$zeile2 = str_replace($search, $replace, $zeile2);
 		$zeile3 = str_replace($search, $replace, $zeile3);
