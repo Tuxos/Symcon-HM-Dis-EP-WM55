@@ -30,7 +30,7 @@
 
 		$string = "0x02,0x0A";
 		if ($display_line[1]['text'] != "") {
-            $string .= ",0x12,".HMDIS_hex_encode($display_line[1]['text']);
+            $string .= ",0x12,".HMDIS_hex_encode($this->InstanceID, $display_line[1]['text']);
             if ($display_line[1]['icon'] != ""){
                 $string .= "0x13,".$display_line[1]['icon'].",0x0A";
             } else {
@@ -40,7 +40,7 @@
             $string.= ",0x0A";
         }
         if ($display_line[2]['text'] != "") {
-            $string .= ",0x12,".HDIS_hex_encode($display_line[2]['text']);
+            $string .= ",0x12,".HDIS_hex_encode($this->InstanceID, $display_line[2]['text']);
             if ($display_line[2]['icon'] != ""){
                 $string .= "0x13,".$display_line[2]['icon'].",0x0A";
             } else {
@@ -50,7 +50,7 @@
             $string.= ",0x0A";
         }
         if ($display_line[3]['text'] != "") {
-            $string .= ",0x12,".HMDIS_hex_encode($display_line[3]['text']);
+            $string .= ",0x12,".HMDIS_hex_encode($this->InstanceID, $display_line[3]['text']);
             if ($display_line[3]['icon'] != ""){
                 $string .= "0x13,".$display_line[3]['icon'].",0x0A";
             } else {
@@ -267,13 +267,13 @@ $display_line[3] =
 // Ab hier keine Änderungen machen
 //*************************************************************************
 
-$string = HMDIS_umsetzen($display_line);
+$string = HMDIS_umsetzen($this->InstanceID, $display_line);
 
 // Definition der Werte für die Tonfolgen
 $string = $string . ",0x14," . $tonfolge . ",0x1C,";
 
 // Wiedeholungen und Abstand hinzufügen
-$string = HMDIS_wiederholungen_abstand($wiederholungen, $string, $abstand);
+$string = HMDIS_wiederholungen_abstand($this->InstanceID, $wiederholungen, $string, $abstand);
 
 // Definition der Werte für die Signale
 $string = $string . $signal . ",0x03";
@@ -285,7 +285,7 @@ dom.GetObject("BidCos-RF.'.$Seriennummer.':3.SUBMIT").State("'.$string.'");
 
 //echo $HM_Script;
 
-HMDIS_HMRS_HTTP_Post($CCU_IP, $HM_Script);
+HMDIS_HMRS_HTTP_Post($this->InstanceID, $CCU_IP, $HM_Script);
 
 	}
 }
