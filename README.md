@@ -1,6 +1,4 @@
 # Symcon-HM-Dis-EP-WM55
-Only for Test! Please wait for official support from IPSymcon. | Homematic ePaper Display module for IPSymcon
-
 Dieses Modul soll nur übergangsweise bestehen bis die Unterstüzung in das Homematic Extended Modul oder in IPSymcon selber implementiert wurde.
 
 Der absolute Großteil der Funktionen stammt nicht von mir, sondern von User Chris aka. "balihannes" aus dem IPSymcon Forum. Vielen Dank dafür!
