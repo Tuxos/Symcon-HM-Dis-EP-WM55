@@ -1,0 +1,19 @@
+{
+    "elements":
+    [
+        { "type": "ValidationTextBox" , "name" : "ipadress", "caption": "CCU IP Adresse" },
+        { "type": "ValidationTextBox" , "name" : "serialnumber", "caption": "Display Seriennummer" }
+    ],
+    "actions":
+    [
+
+	{ "type": "Button", "label": "Sende Testnachricht", "onClick": "HMDIS_XXXXXX;" }
+
+    ],
+    "status":
+    [
+        { "code": 101, "icon": "active", "caption": "HM-Dis-EP-WM55 Instanz wird erstellt..." },
+        { "code": 102, "icon": "active", "caption": "HM-Dis-EP-WM55 Instanz ist aktiv" },
+        { "code": 202, "icon": "error", "caption": "Konfiguration falsch oder unvollständig" }
+    ]
+}
