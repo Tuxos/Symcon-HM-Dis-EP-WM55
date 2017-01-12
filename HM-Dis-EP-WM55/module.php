@@ -19,12 +19,12 @@
 		$InsID = IPS_CreateInstance("{EE4A81C6-5C90-4DB7-AD2F-F6BBD521412E}");
 		IPS_SetName($InsID, "Taste unten");
 		IPS_SetParent($InsID, $this->InstanceID);
-		IPS_SetConfiguration($InsID, '{"Protocol":0,"Address":"$this->ReadPropertyString("serialnumber"):1","EmulateStatus":true}');
+		IPS_SetConfiguration($InsID, '{"Protocol":0,"Address":"'.$this->ReadPropertyString("serialnumber").':1","EmulateStatus":true}');
 
 		$InsID = IPS_CreateInstance("{EE4A81C6-5C90-4DB7-AD2F-F6BBD521412E}");
 		IPS_SetName($InsID, "Taste oben");
 		IPS_SetParent($InsID, $this->InstanceID);
-		IPS_SetConfiguration($InsID, '{"Protocol":0,"Address":"$this->ReadPropertyString("serialnumber"):2","EmulateStatus":true}');
+		IPS_SetConfiguration($InsID, '{"Protocol":0,"Address":"'.$this->ReadPropertyString("serialnumber").':2","EmulateStatus":true}');
 
 		if (($this->ReadPropertyString("ipadress") != "") and ($this->ReadPropertyString("serialnumber") != ""))
 			{
