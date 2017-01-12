@@ -40,7 +40,7 @@
             $string.= ",0x0A";
         }
         if ($display_line[2]['text'] != "") {
-            $string .= ",0x12,".HDIS_hex_encode($this->InstanceID, $display_line[2]['text']);
+            $string .= ",0x12,".HMDIS_hex_encode($this->InstanceID, $display_line[2]['text']);
             if ($display_line[2]['icon'] != ""){
                 $string .= "0x13,".$display_line[2]['icon'].",0x0A";
             } else {
