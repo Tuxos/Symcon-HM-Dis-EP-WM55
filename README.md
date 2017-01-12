@@ -24,7 +24,7 @@ Lässt die LED aufleuchten.
 ```
 
 ###tonfolge
-Gibt einen oder mehrer Töne aus.
+Gibt einen oder mehrere Töne aus.
 ```
 0xC0 = Aus
 0xC1 = Lang lang
@@ -36,4 +36,4 @@ Gibt einen oder mehrer Töne aus.
 ```
 
 ###Beispiel
-`HMDIS_writeDisplay(45220 /*[Devices\Homematic\Taster / Aktoren\Homematic HM-DIS-EP-WM55]*/,"Es geht!", "Test Zeile 2", "Test Zeile 3" , "0x85", "0x86", "0x87", "0XF3", "0xC4");`
+`HMDIS_writeDisplay(45220 /*[Devices\Homematic\Taster \Homematic HM-DIS-EP-WM55]*/,"Es geht!", "Test Zeile 2", "Test Zeile 3" , "0x85", "0x86", "0x87", "0XF3", "0xC4");`
