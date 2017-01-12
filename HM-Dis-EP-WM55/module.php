@@ -6,8 +6,8 @@
 
 		parent::Create();
 
-		$this->RegisterPropertyString("ipadress", "192.168.1.8");
-		$this->RegisterPropertyString("serialnumber", "NEQ1593741");
+		$this->RegisterPropertyString("ipadress", "192.168.X.X");
+		$this->RegisterPropertyString("serialnumber", "NEQXXXXXXX");
 
 	}
 
@@ -177,112 +177,112 @@ return $string;
 	public function writeDisplay($zeile1, $zeile2, $zeile3, $icon1, $icon2, $icon3, $signal, $tonfolge ) {
 
 		$CCU_IP = $this->ReadPropertyString("ipadress");  // IP der CCU2
-$Seriennummer = $this->ReadPropertyString("serialnumber"); // Seriennummer des Display
+		$Seriennummer = $this->ReadPropertyString("serialnumber"); // Seriennummer des Display
 
-//--------------- $signal ------------------------
-// Definition der Werte für die Signale
-//
-//  ! 0xF0 AUS
-//  ! 0xF1 Rotes Blitzen
-//  ! 0xF2 Grünes Blitzen
-//  ! 0xF3 Orangenes Blitzen
+		//--------------- $signal ------------------------
+		// Definition der Werte für die Signale
+		//
+		//  ! 0xF0 AUS
+		//  ! 0xF1 Rotes Blitzen
+		//  ! 0xF2 Grünes Blitzen
+		//  ! 0xF3 Orangenes Blitzen
 
-//----------------- $tonfolge ----------------------
-// Definition der Werte für die Tonfolgen
-//
-//  ! 0xC0 AUS
-//  ! 0xC1 LANG LANG
-//  ! 0xC2 LANG KURZ
-//  ! 0xC3 LANG KURZ KURZ
-//  ! 0xC4 KURZ
-//  ! 0xC5 KURZ KURZ
-//  ! 0xC6 LANG
+		//----------------- $tonfolge ----------------------
+		// Definition der Werte für die Tonfolgen
+		//
+		//  ! 0xC0 AUS
+		//  ! 0xC1 LANG LANG
+		//  ! 0xC2 LANG KURZ
+		//  ! 0xC3 LANG KURZ KURZ
+		//  ! 0xC4 KURZ
+		//  ! 0xC5 KURZ KURZ
+		//  ! 0xC6 LANG
 
-// Wiederholungen
-// 1 bis 15. 0 = Unendlich
-$wiederholungen = 1;
+		// Wiederholungen
+		// 1 bis 15. 0 = Unendlich
+		$wiederholungen = 1;
 
-// es wird zum nächstmöglichen Abstand aufgerundet. Maximum ist 160s.
-$abstand = 10;
+		// es wird zum nächstmöglichen Abstand aufgerundet. Maximum ist 160s.
+		$abstand = 10;
 
-//---------------------------------------
-//    ******** Icon ***********
-// EIN                0x80
-// AUS                0x81
-// OFFEN              0x82
-// geschlossen        0x83
-// fehler             0x84
-// alles ok           0x85
-// information        0x86
-// neue nachricht     0x87
-// servicemeldung     0x88
-// ohne Icon          ""
-//---------------------------------------
-// Umlaute - Sonderzeichen:
-//
-// "{" = "ä"
-// "|" = "ö"
-// "#" = "Ö"
-// "}" = "ü"
-// "$" = "Ü"
-// "_" = "ß"
-// ";" = Sanduhr
-// "<" = Pfeil nach unten
-// "=" = Pfeil nach oben
-// "@" = Pfeil nach rechts unten
-// ">" = Pfeil nach rechts oben
-//---------------------------------------
-//     Zugriff auf vordefinierte Texte
-//
-//     0x80 Textblock  1
-//     0x81 Textblock  2
-//     0x82 Textblock  3
-//     0x83 Textblock  4
-//     0x84 Textblock  5
-//     0x85 Textblock  6
-//     0x86 Textblock  7
-//     0x87 Textblock  8
-//     0x88 Textblock  9
-//     0x89 Textblock 10
+		//---------------------------------------
+		//    ******** Icon ***********
+		// Lampe AUS          0x80
+		// Lampe EIN          0x81
+		// OFFEN              0x82
+		// geschlossen        0x83
+		// fehler             0x84
+		// alles ok           0x85
+		// information        0x86
+		// neue nachricht     0x87
+		// servicemeldung     0x88
+		// ohne Icon          ""
+		//---------------------------------------
+		// Umlaute - Sonderzeichen:
+		//
+		// "{" = "ä"
+		// "|" = "ö"
+		// "#" = "Ö"
+		// "}" = "ü"
+		// "$" = "Ü"
+		// "_" = "ß"
+		// ";" = Sanduhr
+		// "<" = Pfeil nach unten
+		// "=" = Pfeil nach oben
+		// "@" = Pfeil nach rechts unten
+		// ">" = Pfeil nach rechts oben
+		//---------------------------------------
+		//     Zugriff auf vordefinierte Texte
+		//
+		//     0x80 Textblock  1
+		//     0x81 Textblock  2
+		//     0x82 Textblock  3
+		//     0x83 Textblock  4
+		//     0x84 Textblock  5
+		//     0x85 Textblock  6
+		//     0x86 Textblock  7
+		//     0x87 Textblock  8
+		//     0x88 Textblock  9
+		//     0x89 Textblock 10
 
-// 1. Zeile *****************************
-$display_line[1] =
-    array(    'text'    =>     $zeile1,
-              'icon'    =>     $icon1);
-// 2. Zeile *****************************
-$display_line[2] =
-    array(    'text'    =>     $zeile2,
-              'icon'    =>     $icon2);
-// 3. Zeile *****************************
-$display_line[3] =
-    array(    'text'    =>     $zeile3,
-              'icon'    =>     $icon3);
+		// 1. Zeile *****************************
+		$display_line[1] =
+			array(    'text'    =>     $zeile1,
+			'icon'    =>     $icon1);
+		// 2. Zeile *****************************
+		$display_line[2] =
+			array(    'text'    =>     $zeile2,
+			'icon'    =>     $icon2);
+			// 3. Zeile *****************************
+			$display_line[3] =
+			array(    'text'    =>     $zeile3,
+			'icon'    =>     $icon3);
 
 
-//*************************************************************************
-// Ab hier keine Änderungen machen
-//*************************************************************************
+		//*************************************************************************
+		// Ab hier keine Änderungen machen
+		//*************************************************************************
 
-$string = HMDIS_umsetzen($this->InstanceID, $display_line);
+		$string = HMDIS_umsetzen($this->InstanceID, $display_line);
 
-// Definition der Werte für die Tonfolgen
-$string = $string . ",0x14," . $tonfolge . ",0x1C,";
+		// Definition der Werte für die Tonfolgen
+		$string = $string . ",0x14," . $tonfolge . ",0x1C,";
 
-// Wiedeholungen und Abstand hinzufügen
-$string = HMDIS_wiederholungen_abstand($this->InstanceID, $wiederholungen, $string, $abstand);
+		// Wiedeholungen und Abstand hinzufügen
+		$string = HMDIS_wiederholungen_abstand($this->InstanceID, $wiederholungen, $string, $abstand);
 
-// Definition der Werte für die Signale
-$string = $string . $signal . ",0x03";
+		// Definition der Werte für die Signale
+		$string = $string . $signal . ",0x03";
 
-$HM_Script = '
-! Hex-String an das Display senden
-dom.GetObject("BidCos-RF.'.$Seriennummer.':3.SUBMIT").State("'.$string.'");
-';
+		$HM_Script = '
+		! Hex-String an das Display senden
+		dom.GetObject("BidCos-RF.'.$Seriennummer.':3.SUBMIT").State("'.$string.'");
+		';
 
-//echo $HM_Script;
+		//echo $HM_Script;
 
-HMDIS_HMRS_HTTP_Post($this->InstanceID, $CCU_IP, $HM_Script);
+		HMDIS_HMRS_HTTP_Post($this->InstanceID, $CCU_IP, $HM_Script);
 
+		}
 	}
-}
 ?>

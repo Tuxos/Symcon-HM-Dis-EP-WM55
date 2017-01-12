@@ -7,7 +7,7 @@
     "actions":
     [
 
-	{ "type": "Button", "label": "Sende Testnachricht", "onClick": "HMDIS_writeDisplay($id,'Es funktioniert!', 'Test 2', 'Test 3' , '', '', '', '0XF3', '0xC4');" }
+	{ "type": "Button", "label": "Sende Testnachricht", "onClick": "HMDIS_writeDisplay($id,'Es geht!', 'Test Zeile 2', 'Test Zeile 3' , '0x85', '0x86', '0x87', '0XF3', '0xC4');" }
 
     ],
     "status":

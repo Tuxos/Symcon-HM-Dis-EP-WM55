@@ -5,5 +5,9 @@
     "url": "https://github.com/Tuxos/Symcon-HM-Dis-EP-WM55",
     "version": "0.1",
     "build": 0,
-    "date": 0
+    "date": 0,
+    "title": "Homematic ePaper Display Taster Modul für IPSymcon",
+    "description": "Ermöglich das Konfigurieren und die Ausgabe von Texten, Icons und Sounds auf einem Homematic ePaper Display Taster.",
+    "tags": ["Homematic", "Display", "Taster"],
+    "req_ips_version": "4.1"
 }
