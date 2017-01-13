@@ -4,6 +4,7 @@ Dieses Modul soll nur übergangsweise bestehen bis die Unterstüzung in das Home
 Der Großteil der Funktionen stammt nicht von mir, sondern von User Chris aka. "balihannes" aus dem IPSymcon Forum. Vielen Dank dafür!
 
 Dieses Modul kann (leider) nur die drei Zeilen in der Mitte setzen. Die oberste und unterste Zeile muss fix über das WebUI der CCU gesetzt werden. Wenn jemand weiss wie man diese setzen kann, bitte melden.
+Die Umlaute werde automatisch richtig umgesetzt. Leider funktioniert das Ä nicht, dies scheint ein Bug zu sein. Das Ä wird als notbehelf zum A.
 
 Entsprechender Eintrag im IPSymcon Forum: https://www.symcon.de/forum/threads/31889-HM-Dis-EP-WM55-e-paper-Status-Display
 
@@ -19,6 +20,18 @@ Gibt entsprechend den Inhalt der Variable auf der jeweiligen Zeile aus.
 
 ###icon 1-3
 Gibt ein Icon am Ende der jeweilgen Zeile 1-3 aus.
+```
+Lampe aus		= 0x80
+Lampe ein 	= 0x81
+offen		= 0x82
+geschlossen	= 0x83
+fehler		= 0x84
+alles ok		= 0x85
+information	= 0x86
+neue nachricht	= 0x87
+servicemeldung	= 0x88
+ohne Icon		= ""  
+```
 
 ###signal
 Lässt die LED aufleuchten.
