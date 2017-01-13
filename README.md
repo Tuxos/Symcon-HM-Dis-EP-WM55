@@ -21,16 +21,16 @@ Gibt entsprechend den Inhalt der Variable auf der jeweiligen Zeile aus.
 ###icon 1-3
 Gibt ein Icon am Ende der jeweilgen Zeile 1-3 aus.
 ```
-Lampe aus		= 0x80
-Lampe ein 	= 0x81
-offen		= 0x82
-geschlossen	= 0x83
-fehler		= 0x84
-alles ok		= 0x85
-information	= 0x86
-neue nachricht	= 0x87
-servicemeldung	= 0x88
-ohne Icon		= ""  
+Lampe aus      = 0x80
+Lampe ein      = 0x81
+offen          = 0x82
+geschlossen    = 0x83
+fehler         = 0x84
+alles ok       = 0x85
+information    = 0x86
+neue nachricht = 0x87
+servicemeldung = 0x88
+ohne Icon      = ""  
 ```
 
 ###signal
